@@ -18,7 +18,7 @@ in
 stdenv.mkDerivation {
   name = "${kb}_${km}.bin";
 
-  buildInputs = [ autoPatchelfHook git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util ];
+  buildInputs = [ git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util ];
 
   src = firmware;
 
