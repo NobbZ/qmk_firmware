@@ -1,4 +1,4 @@
-{stdenv, fetchFromGitHub, zsa, qmk, gcc-arm-embedded, pkgsCross, avrdude, dfu-programmer, dfu-util}:
+{stdenv, fetchFromGitHub, autoPatchelfHook, zsa, qmk, python3, git, gcc-arm-embedded, pkgsCross, avrdude, dfu-programmer, dfu-util}:
 
 let
   firmware = fetchFromGitHub {
@@ -16,9 +16,16 @@ stdenv.mkDerivation {
   pname = "nobbz_ml";
   version = "1";
 
-  buildInputs = [ qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util ];
+  buildInputs = [ autoPatchelfHook git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util ];
 
   src = firmware;
+
+  dontAutoPatchelf = true;
+
+  patchPhase = ''
+    substituteInPlace bin/qmk \
+      --replace "#!/usr/bin/env python3" "#!${python3}/bin/python"
+  '';
 
   buildPhase = ''
     qmk setup -y
