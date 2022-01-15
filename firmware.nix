@@ -13,8 +13,7 @@ let
   km = "default";
 in
 stdenv.mkDerivation {
-  pname = "nobbz_ml";
-  version = "1";
+  name = "${kb}_${km}.bin";
 
   buildInputs = [ autoPatchelfHook git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util ];
 
