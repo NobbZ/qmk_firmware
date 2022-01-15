@@ -2,6 +2,7 @@
 
 let
   firmware = fetchFromGitHub {
+    name = "zsa-firmware-${zsa.rev}-source";
     owner = "zsa";
     repo = "qmk_firmware";
     inherit (zsa) rev;
