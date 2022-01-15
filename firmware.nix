@@ -11,7 +11,9 @@ let
   };
 
   kb = "moonlander";
-  km = "default";
+  km = "nobbz";
+
+  firmwareSrc = ./firmware;
 in
 stdenv.mkDerivation {
   name = "${kb}_${km}.bin";
@@ -25,6 +27,11 @@ stdenv.mkDerivation {
   patchPhase = ''
     substituteInPlace bin/qmk \
       --replace "#!/usr/bin/env python3" "#!${python3}/bin/python"
+  '';
+
+  configurePhase = ''
+    mkdir -p keyboards/${kb}/keymaps
+    cp -rv ${firmwareSrc} keyboards/${kb}/keymaps/${km}
   '';
 
   buildPhase = ''
