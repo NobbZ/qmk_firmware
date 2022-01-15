@@ -13,10 +13,12 @@ let
   kb = "moonlander";
   km = "nobbz";
 
+  version = "ez3n7";
+
   firmwareSrc = ./firmware;
 in
 stdenv.mkDerivation {
-  name = "${kb}_${km}.bin";
+  name = "${kb}_${km}_${version}.bin";
 
   buildInputs = [ git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util ];
 
