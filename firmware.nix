@@ -13,7 +13,7 @@ let
   kb = "moonlander";
   km = "nobbz";
 
-  version = "Dp0oJ";
+  version = "bzAN5";
 
   firmwareSrc = ./firmware;
 in
