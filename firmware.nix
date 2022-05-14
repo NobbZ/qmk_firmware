@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "ezXdm";
+  version = "nBVGb";
 
   firmwareSrc = ./firmware;
 in
