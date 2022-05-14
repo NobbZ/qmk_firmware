@@ -14,7 +14,7 @@
 
     apps.x86_64-linux.push.type = "app";
     apps.x86_64-linux.push.program = "${pkgs.writeShellScript "push" ''
-      sudo ${pkgs.wally-cli}/bin/wally-cli ${self.packages.x86_64-linux.firmware}
+      ${pkgs.wally-cli}/bin/wally-cli ${self.packages.x86_64-linux.firmware}
     ''}";
   };
 }
