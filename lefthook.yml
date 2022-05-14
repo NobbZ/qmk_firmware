@@ -4,5 +4,5 @@
 pre-commit:
   parallel: true
   commands:
-    eslint:
-      run: nix build .?rev=$(git rev-parse HEAD)#firmware --no-outlink
+    build:
+      run: nix build .?rev=$(git rev-parse HEAD)#firmware --no-link -L
