@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "Mg6DL";
+  version = "wLboV";
 
   firmwareSrc = ./firmware;
 in
