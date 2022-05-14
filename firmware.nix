@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "KLDrw";
+  version = "lv6Me";
 
   firmwareSrc = ./firmware;
 in
