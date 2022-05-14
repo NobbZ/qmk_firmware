@@ -3,6 +3,6 @@
   See config.h options at https://docs.qmk.fm/#/config_options?id=the-configh-file
 */
 #define ORYX_CONFIGURATOR
-#define USB_SUSPEND_WAKEUP_DELAY 0
-#define FIRMWARE_VERSION u8"gO34N/NgpEd"
+#define USB_SUSPEND_WAKEUP_DELAY 100
+#define FIRMWARE_VERSION u8"gO34N/BgPVO"
 #define RGB_MATRIX_STARTUP_SPD 60

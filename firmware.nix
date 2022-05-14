@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "NgpEd";
+  version = "BgPVO";
 
   firmwareSrc = ./firmware;
 in
