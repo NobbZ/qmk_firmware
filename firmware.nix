@@ -1,6 +1,17 @@
-{stdenv, fetchFromGitHub, autoPatchelfHook, zsa, qmk, python3, git, gcc-arm-embedded, pkgsCross, avrdude, dfu-programmer, dfu-util}:
-
-let
+{
+  stdenv,
+  fetchFromGitHub,
+  autoPatchelfHook,
+  zsa,
+  qmk,
+  python3,
+  git,
+  gcc-arm-embedded,
+  pkgsCross,
+  avrdude,
+  dfu-programmer,
+  dfu-util,
+}: let
   firmware = fetchFromGitHub {
     name = "zsa-firmware-${zsa.rev}-source";
     owner = "zsa";
@@ -17,31 +28,31 @@ let
 
   firmwareSrc = ./firmware;
 in
-stdenv.mkDerivation {
-  name = "${kb}_${km}_${version}.bin";
+  stdenv.mkDerivation {
+    name = "${kb}_${km}_${version}.bin";
 
-  buildInputs = [ git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util ];
+    buildInputs = [git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util];
 
-  src = firmware;
+    src = firmware;
 
-  dontAutoPatchelf = true;
+    dontAutoPatchelf = true;
 
-  patchPhase = ''
-    substituteInPlace bin/qmk \
-      --replace "#!/usr/bin/env python3" "#!${python3}/bin/python"
-  '';
+    patchPhase = ''
+      substituteInPlace bin/qmk \
+        --replace "#!/usr/bin/env python3" "#!${python3}/bin/python"
+    '';
 
-  configurePhase = ''
-    mkdir -p keyboards/${kb}/keymaps
-    cp -rv ${firmwareSrc} keyboards/${kb}/keymaps/${km}
-  '';
+    configurePhase = ''
+      mkdir -p keyboards/${kb}/keymaps
+      cp -rv ${firmwareSrc} keyboards/${kb}/keymaps/${km}
+    '';
 
-  buildPhase = ''
-    qmk setup -y
-    qmk compile -kb ${kb} -km ${km}
-  '';
+    buildPhase = ''
+      qmk setup -y
+      qmk compile -kb ${kb} -km ${km}
+    '';
 
-  installPhase = ''
-    cp ${kb}_${km}.bin $out
-  '';
-}
+    installPhase = ''
+      cp ${kb}_${km}.bin $out
+    '';
+  }
