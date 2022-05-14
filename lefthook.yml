@@ -5,4 +5,4 @@ pre-commit:
   parallel: true
   commands:
     build:
-      run: nix build .?rev=$(git rev-parse HEAD)#firmware --no-link -L
+      run: nix build .?rev=$(git rev-parse HEAD)#firmware --no-link -Lv
