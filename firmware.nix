@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "yNnWn";
+  version = "Dg4AM";
 
   firmwareSrc = ./firmware;
 in
