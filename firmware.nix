@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "ApOoE";
+  version = "rxyZ7";
 
   firmwareSrc = ./firmware;
 in
