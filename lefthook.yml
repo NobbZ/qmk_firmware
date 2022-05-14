@@ -2,7 +2,7 @@
 # https://github.com/evilmartians/lefthook/blob/master/docs/full_guide.md
 
 pre-commit:
-  parallel: true
+  parallel: false
   commands:
     build:
       run: nix build .#firmware --no-link -Lv
