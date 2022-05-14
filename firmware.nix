@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "bzAN5";
+  version = "BpLMD";
 
   firmwareSrc = ./firmware;
 in
@@ -33,9 +33,22 @@ in
 
     buildInputs = [git qmk gcc-arm-embedded pkgsCross.avr.buildPackages.gcc8 avrdude dfu-programmer dfu-util];
 
-    src = firmware;
+    srcs = [firmware firmwareSrc];
+    sourceRoot = firmware.name;
 
     dontAutoPatchelf = true;
+
+    unpackPhase = ''
+      runHook preUnpack
+
+      for s in $srcs; do
+        dst=$(stripHash "$s")
+        cp -rv "$s" "$dst"
+        chmod -Rv +w $dst
+      done
+
+      runHook postUnpack
+    '';
 
     patchPhase = ''
       substituteInPlace bin/qmk \
@@ -44,7 +57,7 @@ in
 
     configurePhase = ''
       mkdir -p keyboards/${kb}/keymaps
-      cp -rv ${firmwareSrc} keyboards/${kb}/keymaps/${km}
+      cp -rv ../firmware keyboards/${kb}/keymaps/${km}
     '';
 
     buildPhase = ''
