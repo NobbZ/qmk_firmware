@@ -24,7 +24,7 @@
   kb = "moonlander";
   km = "nobbz";
 
-  version = "KLXaa";
+  version = "rx0J9";
 
   firmwareSrc = ./firmware;
 in
