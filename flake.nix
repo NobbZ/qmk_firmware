@@ -17,6 +17,7 @@
     };
 
     packages.x86_64-linux.firmware = pkgs.callPackage ./firmware.nix {inherit zsa;};
+    packages.x86_64-linux.default = self.packages.x86_64-linux.firmware;
 
     apps.x86_64-linux.default = self.apps.x86_64-linux.push;
     apps.x86_64-linux.push.type = "app";
