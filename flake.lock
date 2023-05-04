@@ -2,11 +2,11 @@
   "nodes": {
     "nixpkgs": {
       "locked": {
-        "lastModified": 1652252629,
-        "narHash": "sha256-SvT64apetqc8P5nYp1/fOZvUmHUPdPFUZbhSpKy+1aI=",
+        "lastModified": 1683020768,
+        "narHash": "sha256-ZyZl6k9NWS5QPwD3NoAVz/eSgodQDvl+y+fu8MVbrHc=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d2fc6856824cb87742177eefc8dd534bdb6c3439",
+        "rev": "44f30edf5661d86fb3a95841c35127f3d0ea8b0f",
         "type": "github"
       },
       "original": {
@@ -25,16 +25,16 @@
     "zsa": {
       "flake": false,
       "locked": {
-        "lastModified": 1642061475,
-        "narHash": "sha256-HpWlJlUm2ZQ1rToGuPNLifU4BiIL6CSH7p+7fWPeOZE=",
+        "lastModified": 1678870550,
+        "narHash": "sha256-LWwQMIrk+3RxlR1zFLjS02kDuROV63ZZHF8oqGW1wYU=",
         "owner": "zsa",
         "repo": "qmk_firmware",
-        "rev": "89ea06a18b21683243d284f8ca69c5b4ed6ba5e7",
+        "rev": "0f23d33a864b78b20b460eb9126ee17a26f6f0ac",
         "type": "github"
       },
       "original": {
         "owner": "zsa",
-        "ref": "firmware20",
+        "ref": "firmware22",
         "repo": "qmk_firmware",
         "type": "github"
       }

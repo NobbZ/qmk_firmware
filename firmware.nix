@@ -18,13 +18,13 @@
     repo = "qmk_firmware";
     inherit (zsa) rev;
     fetchSubmodules = true;
-    sha256 = "sha256-yqnsSDY6aouHh0FF+U9VqJSQGCEo7+WCjoSFRqkC1F8=";
+    sha256 = "sha256-pDRtgAjnooompXH4YoCiWSRP/Ml60U3Mx+vDah/9QSE=";
   };
 
   kb = "moonlander";
   km = "nobbz";
 
-  version = "wLboV";
+  version = "x0gyK";
 
   firmwareSrc = ./firmware;
 in
@@ -50,10 +50,10 @@ in
       runHook postUnpack
     '';
 
-    patchPhase = ''
-      substituteInPlace bin/qmk \
-        --replace "#!/usr/bin/env python3" "#!${python3}/bin/python"
-    '';
+    # patchPhase = ''
+    #   substituteInPlace bin/qmk \
+    #     --replace "#!/usr/bin/env python3" "#!${python3}/bin/python"
+    # '';
 
     configurePhase = ''
       mkdir -p keyboards/${kb}/keymaps
@@ -61,7 +61,7 @@ in
     '';
 
     buildPhase = ''
-      qmk setup -y
+      qmk setup
       qmk compile -kb ${kb} -km ${km}
     '';
 

@@ -1,6 +1,6 @@
 {
   inputs.nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-  inputs.zsa.url = "github:zsa/qmk_firmware/firmware20";
+  inputs.zsa.url = "github:zsa/qmk_firmware/firmware22";
   inputs.zsa.flake = false;
 
   outputs = {
